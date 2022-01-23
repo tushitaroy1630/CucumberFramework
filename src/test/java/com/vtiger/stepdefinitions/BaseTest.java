@@ -28,7 +28,12 @@ public class BaseTest {
 	{		
 		ReadProperties();
 		dt = readExcelData();
-		if(prop.getProperty("browser").equals("chrome"))
+		if(System.getProperty("browser").equals("Chrome"))
+		{
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		}		
+		else if(prop.getProperty("browser").equals("chrome"))
 		{
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
